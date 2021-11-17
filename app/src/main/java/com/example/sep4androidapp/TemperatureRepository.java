@@ -46,7 +46,7 @@ public class TemperatureRepository {
             @EverythingIsNonNull
             @Override
             public void onResponse(Call<TemperatureResponse> call, Response<TemperatureResponse> response) {
-                Log.i("Retrofit", "TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaaaa");
+                Log.i("Retrofit", "onResponse");
                 if(response.code() == 200)
                 {
                     receivedData.setValue(response.body().getData());
@@ -56,7 +56,7 @@ public class TemperatureRepository {
             @Override
             public void onFailure(Call<TemperatureResponse> call, Throwable t) {
                 if (t instanceof IOException) {
-                    Log.i("Retrofit", "The data could not reach you!" +t.getCause());
+                    Log.i("Retrofit", "The data could not reach you!" +t.getMessage());
                 }
                 else{
                     Log.i("Retrofit", "The data could not reach you!NOT IO EXCEPTION");
